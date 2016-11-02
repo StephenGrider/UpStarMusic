@@ -19,7 +19,9 @@ class Header extends Component {
       .then((artists) => {
         const artist = artists[~~(Math.random() * artists.length)];
 
-        this.setState({ id: artist._id.toString() });
+        if (artist) {
+          this.setState({ id: artist._id.toString() });
+        }
       });
   }
 
