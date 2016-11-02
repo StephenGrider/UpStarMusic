@@ -7,7 +7,6 @@ const MINIMUM_ARTISTS = 2;
 const ARTISTS_TO_ADD = 15;
 
 let artistsCollection;
-
 const db = new Db('artists', new Server('localhost', 27017));
 db.open()
   .then(() => {
@@ -70,5 +69,5 @@ function randomEntry(array) {
 }
 
 function randomBetween(min, max) {
-  return ~~(Math.random() * (max-min)) + min
+  return ~~(Math.random() * (max-min)) + min;
 }

@@ -52,7 +52,7 @@ class ArtistDetail extends Component {
   }
 
   render() {
-    if (!this.props.artist) { return <div>Todo: implement finding an artist</div>; }
+    if (!this.props.artist) { return <div>Todo: implement "FindArtist" query</div>; }
 
     const { artist: { name, age, genre, image, yearsActive, netWorth, labelName, _id } } = this.props;
     const id = _id.toString();
