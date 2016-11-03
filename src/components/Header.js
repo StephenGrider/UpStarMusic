@@ -31,7 +31,7 @@ class Header extends Component {
         <nav>
           <div className="nav-wrapper">
             <div className="col s12">
-              <a href="#" className="brand-logo">Logo</a>
+              <a href="#" className="brand-logo">UpStar Music</a>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
                 <li>
                   <Link
