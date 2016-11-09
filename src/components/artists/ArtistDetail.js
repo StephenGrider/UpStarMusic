@@ -55,13 +55,12 @@ class ArtistDetail extends Component {
     if (!this.props.artist) { return <div>Todo: implement "FindArtist" query</div>; }
 
     const { artist: { name, age, genre, image, yearsActive, netWorth, labelName, _id } } = this.props;
-    const id = _id.toString();
 
     return (
       <div>
         <div className="spacer">
           <Link to="/">Back</Link>
-          <Link to={`/artists/${id}/edit`}>Edit</Link>
+          <Link to={`/artists/${_id}/edit`}>Edit</Link>
           <a onClick={this.onDeleteClick.bind(this)}>Delete</a>
         </div>
         <ul className="collection artist-detail">

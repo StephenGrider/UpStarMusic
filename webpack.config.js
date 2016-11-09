@@ -36,7 +36,15 @@ module.exports = {
       },
       {
         test: /\.sass$/,
-        loaders: ["style", "css", "sass"]
+        loaders: ['style', 'css', 'sass']
+      },
+      {
+        test: /\.json$/,
+        loader: 'json'
+      },
+      {
+        test: /\.md$/,
+        loader: 'html!markdown' 
       }
     ]
   },
