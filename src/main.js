@@ -6,7 +6,7 @@ import ReduxThunk from 'redux-thunk';
 import { Db, Server } from 'mongodb';
 import reducers from './reducers';
 import Routes from './router';
-// import './seeds';
+import './seeds';
 
 const App = () => {
   const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
