@@ -7,7 +7,7 @@ const MINIMUM_ARTISTS = 2;
 const ARTISTS_TO_ADD = 15;
 
 let artistsCollection;
-const db = new Db('artists', new Server('localhost', 27017));
+const db = new Db('upstar_music', new Server('localhost', 27017));
 db.open()
   .then(() => {
     artistsCollection = db.collection('artists');
