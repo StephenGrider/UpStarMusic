@@ -15,9 +15,9 @@ class ArtistIndex extends Component {
   }
 
   renderList(artist) {
-    const _id = artist._id.toString();
+    const { _id } = artist;
     const classes = `collection-item avatar ${artist.retired && 'retired'}`;
-    
+
     return (
       <li className={classes} key={_id}>
         <div>

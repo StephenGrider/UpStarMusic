@@ -13,15 +13,15 @@ import {
   RESET_SELECTION
 } from './types';
 
-import GetAgeRange from '../../database/GetAgeRange';
-import GetYearsActiveRange from '../../database/GetYearsActiveRange';
-import SearchArtists from '../../database/SearchArtists';
-import FindArtist from '../../database/FindArtist';
-import CreateArtist from '../../database/CreateArtist';
-import EditArtist from '../../database/EditArtist';
-import DeleteArtist from '../../database/DeleteArtist';
-import SetRetired from '../../database/SetRetired';
-import SetNotRetired from '../../database/SetNotRetired';
+import GetAgeRange from '../../database/queries/GetAgeRange';
+import GetYearsActiveRange from '../../database/queries/GetYearsActiveRange';
+import SearchArtists from '../../database/queries/SearchArtists';
+import FindArtist from '../../database/queries/FindArtist';
+import CreateArtist from '../../database/queries/CreateArtist';
+import EditArtist from '../../database/queries/EditArtist';
+import DeleteArtist from '../../database/queries/DeleteArtist';
+import SetRetired from '../../database/queries/SetRetired';
+import SetNotRetired from '../../database/queries/SetNotRetired';
 
 export const resetArtist = () => {
   return { type: RESET_ARTIST };
@@ -40,12 +40,12 @@ export const deselectArtist = id => {
 };
 
 export const setRetired = ids => (dispatch, getState) =>
-  SetRetiredProxy(ids)
+  SetRetiredProxy(ids.map(id => id.toString()))
     .then(() => dispatch({ type: RESET_SELECTION }))
     .then(() => refreshSearch(dispatch, getState));
 
 export const setNotRetired = ids => (dispatch, getState) =>
-  SetNotRetiredProxy(ids)
+  SetNotRetiredProxy(ids.map(id => id.toString()))
     .then(() => dispatch({ type: RESET_SELECTION }))
     .then(() => refreshSearch(dispatch, getState));
 
@@ -76,9 +76,7 @@ export const findArtist = id => dispatch =>
 export const createArtist = props => dispatch =>
   CreateArtistProxy(props)
     .then(artist => {
-      const id = artist.insertedId.toString();
-
-      hashHistory.push(`artists/${id}`);
+      hashHistory.push(`artists/${artist.id}`);
     })
     .catch(error => {
       console.log(error);

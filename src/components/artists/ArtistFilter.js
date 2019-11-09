@@ -16,7 +16,10 @@ class ArtistFilter extends Component {
         ...this.props.filters
       });
     } else {
-      this.props.searchArtists({ name: '', sort: 'name' });
+      this.props.searchArtists({
+        name: '',
+        sort: 'name'
+      });
     }
   }
 
